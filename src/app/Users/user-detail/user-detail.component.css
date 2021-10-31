@@ -1,0 +1,39 @@
+
+.table tr:hover{   
+  background: #A2D2FF;
+  /* color: white;     */
+  
+}
+
+.table th{   
+  color: #3DB2FF;
+  font-weight: bold;
+  
+}
+
+
+.user-titile{
+  color: #3DB2FF;
+  text-align: left;  
+}
+
+.hiddenId{
+  display: none;
+  visibility: hidden;
+}
+
+
+.table-container{
+width: 80%;
+
+}
+
+.nodata{
+  color: #FF865E;
+  text-align: center;  
+}
+
+.button{  
+  color: #3DB2FF;
+  font-weight: bold;
+}

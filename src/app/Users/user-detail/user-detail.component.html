@@ -1,0 +1,42 @@
+
+
+<p *ngIf="loading  ">loading...</p>
+ 
+<div  *ngIf=" !loading  "  style="display: flex;  margin: 10px;">
+
+    <div style="text-align: left; margin: 10px;">
+        <h1 class="user-titile">Users</h1>
+        
+    </div>
+    <div style="text-align: right; margin: 10px;" >
+        <button class="button" (click)="RefrashData();" type="submit">Refrash </button>
+        
+    </div> 
+</div>
+
+
+
+
+    <h4 class="nodata" *ngIf="!showUsersData && !loading  ">No data</h4>
+
+    <table class="table" *ngIf="showUsersData && !loading" > 
+        <thead >
+            <th class="hiddenId">Id</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Birthdate</th>
+        </thead>
+        <tbody>
+        
+            <tr  *ngFor="let user of users" >
+                <td class="hiddenId">{{user.id}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.surname}}</td>
+                <td>{{user.birthdate | date:'dd/MM/yyyy'}}</td>
+            </tr>
+        </tbody>
+        
+    </table>
+
+
+
