@@ -10,12 +10,11 @@ export class ToolbarComponent implements OnInit {
 
 
   constructor() { 
-    
-    console.debug('myCustomComponent');
+        
   }
 
   ngOnInit(): void {
-    console.debug('myCustomComponent');
+    
   }
 
 }
