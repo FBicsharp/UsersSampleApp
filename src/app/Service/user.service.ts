@@ -1,29 +1,31 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { User } from '../Model/user.model';
-import { MOCKUSERS } from '../Model/mock-users';
 import { Observable, of } from 'rxjs';
+import { AppConfigService } from './app-config.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private readonly baseUrl = 'https://localhost:5001/Users'
-
-  constructor(private http: HttpClient) { }
-
+  
+  constructor(private http: HttpClient, private appConfigService: AppConfigService) { 
+    
+    this.baseUrl = this.appConfigService.apiBaseUrl;
+  }
+  
+  baseUrl : string = 'https://localhost:5001/Users'
   fromData: User = new User();
   usersList: User[] =[];
 
-   GetUsers(): Observable<User[]> {    
-    console.info("GetUsers")    
+  ngOnInit(): void {
+    
+  }
+  
+  GetUsers(): Observable<User[]> {    
+    console.debug("GetUsers");        
     return this.http.get<User[]>(this.baseUrl)
-    
-    //  .pipe(
-    //   catchError(this.handleError<User[]>('GetUsers', []))
-    // );
-    
   }
   
   
