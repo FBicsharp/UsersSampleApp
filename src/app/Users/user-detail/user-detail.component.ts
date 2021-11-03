@@ -24,17 +24,31 @@ export class UserDetailComponent implements OnInit {
   GetUsers(): void {    
     this.loading  =true;        
     console.info("GetUsers");
+    // this.service.GetUsers()
+    // .subscribe(users => {
+    //   this.users = users;
+    //   this.showUsersData = this.users.length>0;
+    //   this.loading  =false;    
+    // } );  
     this.service.GetUsers()
-    .subscribe(users => {
-      this.users = users;
-      this.showUsersData = this.users.length>0;
-      this.loading  =false;    
-    } );  
+    .subscribe(
+      data => {
+        this.users = data;
+        this.showUsersData = this.users.length>0;
+        this.loading  =false;    
+      },
+      error =>{        
+        this.showUsersData = this.users.length>0;
+        this.loading  =false; 
+      } 
+    );
+    
+
   }
 
   RefrashData():void{
     console.info("RefrashData");
-    this.GetUsers();
+    this.GetUsers()
   }
 
 }
