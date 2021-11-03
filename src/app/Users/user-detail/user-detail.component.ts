@@ -23,7 +23,7 @@ export class UserDetailComponent implements OnInit {
   
   GetUsers(): void {    
     this.loading  =true;        
-    console.info("GetUsers");
+    console.debug("GetUsers");
     // this.service.GetUsers()
     // .subscribe(users => {
     //   this.users = users;
@@ -47,7 +47,7 @@ export class UserDetailComponent implements OnInit {
   }
 
   RefrashData():void{
-    console.info("RefrashData");
+    console.debug("RefrashData");
     this.GetUsers()
   }
 
